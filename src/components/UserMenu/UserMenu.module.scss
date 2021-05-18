@@ -1,0 +1,30 @@
+@import '../../styles/main.scss';
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.name {
+  font-weight: 700;
+  margin-right: 12px;
+  color: #6c6767;
+}
+
+.button {
+  font-weight: bold;
+  padding: 5px;
+  color: $text;
+  background-color: $bgcolor;
+  border: 1px solid $bgcolor;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+
+  &:hover {
+    color: $accent-text;
+    background-color: $accent;
+    border: 1px solid $accent;
+    box-shadow: $shadow;
+  }
+}

@@ -1,0 +1,57 @@
+@import '../../styles/main.scss';
+
+.form {
+  width: 250px;
+  margin: 15px auto;
+  padding: 15px;
+  border: 1px solid $text;
+  border-radius: 4px;
+
+  @media screen and (min-width: $tablet) {
+    width: 350px;
+  }
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  color: $text;
+
+  &__text {
+    margin-bottom: 5px;
+  }
+}
+
+.input {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+
+  line-height: normal;
+
+  transition: all $transition-duration $timing-function;
+
+  &:focus {
+    outline: transparent;
+    border: 1px solid $text;
+  }
+}
+
+.button {
+  font-weight: bold;
+  padding: 5px;
+  color: $text;
+  background-color: $bgcolor;
+  border: 1px solid $bgcolor;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+
+  &:hover {
+    color: $accent-text;
+    background-color: $accent;
+    border: 1px solid $accent;
+    box-shadow: $shadow;
+  }
+}
