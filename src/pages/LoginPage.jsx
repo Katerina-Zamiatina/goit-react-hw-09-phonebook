@@ -2,6 +2,8 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { onLogin } from '../redux/login/login-operations';
 
+import styles from './Sign.module.scss';
+
 const LoginPage = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
@@ -26,9 +28,9 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="form-container">
-      <form onSubmit={handleSubmit} className="form">
-        <label className="label">
+    <div className={styles.container}>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <label className={styles.label}>
           E-mail
           <input
             type="email"
@@ -37,7 +39,7 @@ const LoginPage = () => {
             onChange={handleChange}
           />
         </label>
-        <label className="label">
+        <label className={styles.label}>
           Password
           <input
             type="password"
@@ -46,7 +48,7 @@ const LoginPage = () => {
             onChange={handleChange}
           />
         </label>
-        <button type="submit" className="button">
+        <button type="submit" className={styles.button}>
           Login
         </button>
       </form>

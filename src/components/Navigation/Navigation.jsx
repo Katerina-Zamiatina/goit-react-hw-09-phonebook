@@ -1,20 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getIsLogged } from '../redux/login/login-selectors';
-import routes from '../routes';
+import { getIsLogged } from '../../redux/login/login-selectors';
+import routes from '../../routes';
 
-const styles = {
-  link: {
-    display: 'inline-block',
-    textDecoration: 'none',
-    padding: 12,
-    fontWeight: 700,
-    color: '#6c6767',
-  },
-  activeLink: {
-    color: '#E84A5F',
-  },
-};
+import styles from './Nvigation.module.scss';
 
 const Navigation = () => {
   const isLogged = useSelector(getIsLogged);
@@ -23,8 +12,8 @@ const Navigation = () => {
       <NavLink
         to={routes.home}
         exact
-        style={styles.link}
-        activeStyle={styles.activeLink}
+        className={styles.link}
+        activeClassName={styles.activeLink}
       >
         Home
       </NavLink>
@@ -32,8 +21,8 @@ const Navigation = () => {
         <NavLink
           to={routes.contacts}
           exact
-          style={styles.link}
-          activeStyle={styles.activeLink}
+          className={styles.link}
+          activeClassName={styles.activeLink}
         >
           Contacts
         </NavLink>

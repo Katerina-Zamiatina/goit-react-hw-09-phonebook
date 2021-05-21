@@ -4,6 +4,7 @@ import { Switch } from 'react-router-dom';
 
 import Loader from 'react-loader-spinner';
 
+import Container from './components/Container';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import AppBar from './components/AppBar';
@@ -32,38 +33,40 @@ const App = () => {
   return (
     <>
       <AppBar />
-      <Switch>
-        <Suspense
-          fallback={
-            <Loader
-              type="ThreeDots"
-              color="#4c4e59"
-              height={80}
-              width={80}
-              className="Loader"
+      <Container>
+        <Switch>
+          <Suspense
+            fallback={
+              <Loader
+                type="ThreeDots"
+                color="#4c4e59"
+                height={80}
+                width={80}
+                className="Loader"
+              />
+            }
+          >
+            <PublicRoute exact path={routes.home} component={HomePage} />
+            <PublicRoute
+              path={routes.register}
+              component={RegisterPage}
+              redirectTo={routes.contacts}
+              restricted
             />
-          }
-        >
-          <PublicRoute exact path={routes.home} component={HomePage} />
-          <PublicRoute
-            path={routes.register}
-            component={RegisterPage}
-            redirectTo={routes.contacts}
-            restricted
-          />
-          <PublicRoute
-            path={routes.login}
-            component={LoginPage}
-            restricted
-            redirectTo={routes.contacts}
-          />
-          <PrivateRoute
-            path={routes.contacts}
-            component={ContactsPage}
-            redirectTo={routes.login}
-          />
-        </Suspense>
-      </Switch>
+            <PublicRoute
+              path={routes.login}
+              component={LoginPage}
+              restricted
+              redirectTo={routes.contacts}
+            />
+            <PrivateRoute
+              path={routes.contacts}
+              component={ContactsPage}
+              redirectTo={routes.login}
+            />
+          </Suspense>
+        </Switch>
+      </Container>
     </>
   );
 };
